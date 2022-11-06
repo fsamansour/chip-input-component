@@ -1,6 +1,6 @@
 # Chip Input Component
 
-![](https://github.com/fsamansour/chip-input-component/preview.gif)
+![](https://github.com/fsamansour/chip-input-component/blob/main/preview.gif?raw=true)
 
 ## Development server
 
@@ -19,4 +19,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing
 capabilities.
 
-####    * Programming languages list is from: https://en.wikipedia.org/wiki/List_of_programming_languages
+####     * Programming languages list is from: https://en.wikipedia.org/wiki/List_of_programming_languages
