@@ -13,6 +13,7 @@ $chip-border-radius: $border-radius;
 $option-hover-bg: #f5faff;
 
 .chip-input {
+  display: block;
   position: relative;
   color: $color;
 
@@ -136,6 +137,7 @@ $option-hover-bg: #f5faff;
     display: none;
     max-height: calc(5 * (1.5em + $padding * 2));
     overflow: auto;
+    z-index: 1;
   }
 
   &__option {
