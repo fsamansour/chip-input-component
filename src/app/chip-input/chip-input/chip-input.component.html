@@ -1,0 +1,38 @@
+<div class="chip-input__container">
+  <div (click)="setIsOpen(true)" class="chip-input__value__container">
+    <div *ngFor="let label of value" class="chip-input__value">
+      <span class="chip-input__value__label">{{label}}</span>
+      <span (click)="toggleItem(label)" class="chip-input__value__icon">x</span>
+    </div>
+    <div [formGroup]="form" class="chip-input__input">
+      <input
+        #inputEl
+        (blur)="this.isFocus = false"
+        (focus)="this.isFocus = true"
+        (keydown.arrowDown)="hoverNext()"
+        (keydown.arrowUp)="hoverPrev()"
+        (keydown.backspace)="removeLast()"
+        (keydown.enter)="toggleCurrent()"
+        (keydown.escape)="setIsOpen(false)" [placeholder]="placeholder" autocapitalize="off" autocorrect="off"
+        formControlName="searchText" type="text"
+      >
+    </div>
+  </div>
+  <span (click)="clear()" *ngIf="value?.length" class="chip-input__clear__wrapper">
+    <span class="chip-input__clear">x</span>
+  </span>
+  <span (click)="setIsOpen()" class="chip-input__arrow__wrapper">
+    <span class="chip-input__arrow"></span>
+  </span>
+</div>
+
+<div #dropdownEl class="chip-input__dropdown">
+  <div #optionEl
+       (click)="toggleItem(item)"
+       (mousemove)="setHoverIdx(i)"
+       *ngFor="let item of filteredItems; index as i"
+       [class.chip-input__option--hovered]="hoverIdx === i"
+       [class.chip-input__option--selected]="value?.includes(item)" class="chip-input__option"
+  >{{item}}</div>
+  <div *ngIf="!filteredItems?.length" class="chip-input__option chip-input__option--disabled">No items found</div>
+</div>

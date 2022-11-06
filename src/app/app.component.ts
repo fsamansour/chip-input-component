@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'chip-input-component';
+  programmingLanguages: string[] = require('../assets/programming-languages.json');
+  form = new FormGroup({
+    chips: new FormControl()
+  });
 }

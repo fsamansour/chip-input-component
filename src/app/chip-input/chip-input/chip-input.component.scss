@@ -1,0 +1,165 @@
+@use "sass:math";
+
+$border: #ccc;
+$actions-color: darken($border, 10);
+$border-active: #007bff;
+$color: #333;
+$border-radius: 4px;
+$padding: 8px;
+$padding-sm: math.div(8px, 2);
+$chip-spacing: $padding-sm;
+$chip-bg: #ebf5ff;
+$chip-border-radius: $border-radius;
+$option-hover-bg: #f5faff;
+
+.chip-input {
+  position: relative;
+  color: $color;
+
+  &--opened & {
+    &__arrow {
+      transform: rotate(-135deg) translateX(-50%);
+    }
+
+    &__dropdown {
+      display: block;
+    }
+  }
+
+  &--focused & {
+    &__container {
+      border-color: $border-active;
+      box-shadow: 0 0 0 2px rgba($chip-bg, 1);
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    border: 1px solid $border;
+    outline: none;
+    color: $color;
+    border-radius: $border-radius;
+    padding: $padding;
+  }
+
+  &__value {
+    &__container {
+      flex: 1;
+      flex-wrap: wrap;
+      display: flex;
+      align-items: center;
+      margin-bottom: -$chip-spacing;
+    }
+
+    font-size: .9em;
+    border-radius: $chip-border-radius;
+    overflow: hidden;
+    background-color: $chip-bg;
+    display: inline-block;
+    margin-inline-end: $chip-spacing;
+    margin-bottom: $chip-spacing;
+
+    &__label, &__icon {
+      display: inline-block;
+      padding: $padding-sm $padding;
+    }
+
+    &__icon {
+      cursor: pointer;
+      transition: background-color 250ms;
+
+      &:hover {
+        background-color: darken($chip-bg, 5);
+      }
+    }
+  }
+
+  &__input {
+    flex: 1;
+
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: none;
+      padding: $padding;
+    }
+  }
+
+  &__clear {
+    &__wrapper {
+      display: inline-block;
+      padding: 0 $padding;
+      cursor: pointer;
+      color: $actions-color;
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
+
+  &__arrow {
+    $arrow-selector: &;
+
+    &__wrapper {
+      padding: 0 $padding;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      &:hover {
+        #{$arrow-selector} {
+          border-color: transparent $color $color transparent;
+        }
+      }
+    }
+
+    width: 10px;
+    height: 10px;
+    border: 2px solid;
+    border-color: transparent $actions-color $actions-color transparent;
+    transform: rotate(45deg) translateY(-50%);
+    transition: transform 250ms;
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-radius: $border-radius;
+    border: 1px solid $border;
+    display: none;
+    max-height: calc(5 * (1.5em + $padding * 2));
+    overflow: auto;
+  }
+
+  &__option {
+    padding: $padding;
+    cursor: pointer;
+    $option-selector: &;
+
+    &--hovered {
+      background-color: $option-hover-bg;
+    }
+
+    &--selected {
+      background-color: $chip-bg;
+      font-weight: bold;
+
+      &#{$option-selector}--hovered {
+        text-decoration: underline;
+      }
+    }
+
+    &--disabled {
+      opacity: .5;
+      background-color: white;
+    }
+  }
+
+}
