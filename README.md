@@ -2,7 +2,7 @@
 
 ![](https://github.com/fsamansour/chip-input-component/blob/main/preview.gif?raw=true)
 
-### Live [Demo](https://chip-input-component.netlify.app/)
+### Live Demo on  [Netlify](https://chip-input-component.netlify.app/) or [GitHub Pages](https://fsamansour.github.io/chip-input-component/)
 
 ## Development server
 
@@ -14,4 +14,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Data Source
 
-####       * Programming languages list is from: https://en.wikipedia.org/wiki/List_of_programming_languages
+####        * Programming languages list is from: https://en.wikipedia.org/wiki/List_of_programming_languages
